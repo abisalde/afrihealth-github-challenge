@@ -1,21 +1,35 @@
+const { githubQueryData } = require('./src/utils/API');
+const dotenv = require('dotenv');
+dotenv.config();
+
 module.exports = {
-  siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "graphql-profile",
-  },
-  plugins: [
-    "gatsby-plugin-styled-components",
-    "gatsby-plugin-image",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: "./src/images/",
-      },
-      __key: "images",
+    siteMetadata: {
+        siteUrl: 'https://www.yourdomain.tld',
+        title: 'Github GrapQL Profile Card',
+        description: 'A simple GatsbyJS starter with GraphQL',
+        author: `@abisalde`,
     },
-  ],
+    plugins: [
+        'gatsby-plugin-styled-components',
+        'gatsby-plugin-image',
+        'gatsby-plugin-react-helmet',
+        'gatsby-plugin-sharp',
+        'gatsby-transformer-sharp',
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                name: 'images',
+                path: './src/assets/images',
+            },
+            __key: 'images',
+        },
+        {
+            resolve: `gatsby-source-github-api`,
+            options: {
+                token: process.env.GITHUB_TOKEN,
+                graphQLQuery: githubQueryData,
+                variables: { username: process.env.GITHUB_USERNAME },
+            },
+        },
+    ],
 };

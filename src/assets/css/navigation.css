@@ -1,0 +1,56 @@
+ul.header-navigation {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+.breadcrumbs-sticky-nav .stikcy-navigation {
+    position: sticky;
+    top: 0 !important;
+    width: 100%;
+}
+
+.sticky-navigation {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.sticky-profile-card {
+    width: 22.5%;
+}
+
+.breadcrumbs-inline-navigation {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 75.5%;
+}
+
+.breadcrumbs-nav-links {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    line-height: 1.875rem;
+    color: var(--color-header-bg);
+    text-align: center;
+    border-bottom: 0.13rem solid transparent;
+    white-space: nowrap;
+}
+
+.breadcrumbs-nav-links.active {
+    border-bottom-color: var(--color-border-active);
+    font-weight: 600;
+}
+
+.breadcrumbs-menu {
+    margin-right: 0.4rem;
+    fill: var(--color-svg-breadcrumbs);
+    vertical-align: text-bottom;
+    font-size: 0.8rem;
+}
+
+.breadcrumbs-menu.active {
+    fill: var(--color-header-bg);
+}

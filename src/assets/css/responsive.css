@@ -1,0 +1,202 @@
+@media screen and (min-width: 90px) and (max-width: 691px) {
+    .create-repo,
+    .profile-details,
+    .search-form,
+    nav ul.header-navigation {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .avatar-status {
+        width: 20%;
+    }
+
+    .name-username {
+        width: 100%;
+    }
+
+    .profile-card-repo-details {
+        flex-flow: column nowrap;
+    }
+
+    .profile-avatar-username {
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+
+    .profile-card-content {
+        position: relative;
+        top: 0;
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .breadcrumbs-repository-details {
+        width: 100%;
+    }
+
+    .aboutme-desc p {
+        font-size: 1rem;
+    }
+
+    .follow-aboutme-location {
+        padding-bottom: 1rem;
+    }
+
+    .aboutme-desc {
+        margin-bottom: 1rem;
+        line-height: 1.5;
+    }
+
+    .followers-following {
+        margin-top: 0.5rem;
+    }
+
+    .button-follow {
+        order: 1;
+    }
+
+    .location-twitter {
+        display: none;
+    }
+
+    .breadcrumbs-sticky-nav.desktop {
+        display: none;
+    }
+
+    .breadcrumbs-sticky-nav.mobile {
+        margin-top: 0rem;
+    }
+
+    .sticky-profile-card {
+        display: none;
+    }
+
+    nav.breadcrumbs-inline-navigation {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .breadcrumbs-menu {
+        display: none;
+    }
+
+    .pinned-item {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 692px) and (max-width: 911px) {
+    .display-992 {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 692px) {
+    .logo-search-nav {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 5% 40% 50%;
+        grid-gap: 0.75rem;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .notification-create-profile {
+        display: grid;
+        grid-column-gap: 0.65rem;
+        grid-template-columns: 1.3rem 2.125rem 2.5rem;
+        align-items: center;
+    }
+
+    .profile-card-repo-details {
+        flex-flow: row nowrap;
+    }
+
+    .profile-avatar-username {
+        flex-flow: column nowrap;
+    }
+
+    .profile-card-content {
+        width: 22.5%;
+        margin-top: -2rem;
+    }
+
+    .breadcrumbs-repository-details {
+        width: 75.5%;
+    }
+
+    .button-follow,
+    .aboutme-desc {
+        margin-bottom: 1rem;
+    }
+
+    .aboutme-desc p {
+        font-size: 1rem;
+    }
+
+    .breadcrumbs-sticky-nav.mobile {
+        display: none;
+    }
+
+    .create-repo {
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 100px) {
+    .wrapper {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .pinned-item {
+        width: 49.999%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .wrapper {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        max-width: 1280px;
+    }
+
+    .main-nav-links.display-992 {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1012px) {
+    div.repo-search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex: auto;
+    }
+
+    div.sort-search button {
+        margin-right: 0.3rem;
+        margin-top: 0rem;
+    }
+
+    form div.form-group {
+        margin-right: 1rem;
+        flex: auto;
+    }
+
+    header .wrapper {
+        width: 100vw;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        max-width: inherit;
+    }
+}
