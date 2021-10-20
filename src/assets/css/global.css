@@ -107,7 +107,7 @@ h1 {
 }
 
 svg {
-    fill: #fff;
+    fill: currentColor;
 }
 
 header {
@@ -119,6 +119,7 @@ header {
 }
 
 .home-logo svg {
+    fill: #fff;
     width: 2em;
     height: 2em;
 }
@@ -282,6 +283,7 @@ input[type='text']:focus {
     height: 260px;
     width: 100%;
     height: auto;
+    border: 0.1rem solid var(--color-border-primary);
 }
 
 .name-username {
@@ -323,10 +325,6 @@ input[type='text']:focus {
     font-weight: 600;
 }
 
-.fal.fa-star {
-    padding-left: 0.3rem;
-}
-
 .followers-following a {
     color: var(--color-text-name);
     font-size: 0.95rem;
@@ -338,8 +336,12 @@ input[type='text']:focus {
 }
 
 .link-follows:hover,
-.link-follows i:hover {
+.link-follows svg:hover {
     color: var(--color-focus-border);
+}
+
+.link-follows svg {
+    margin-bottom: -0.11rem;
 }
 
 .follow-aboutme-location {
@@ -486,9 +488,15 @@ div.form-group input::placeholder {
 
 .codelang-fork-date span.codelang,
 span.fork-repo,
-span.date-update {
+span.date-update,
+span.starred-count {
     display: inline-block;
     margin-right: 1rem;
+}
+
+span.fork-repo-display,
+.starred-count-display {
+    display: none;
 }
 
 .codelang .code-color {
@@ -518,10 +526,11 @@ span.date-update {
     border: 0.06rem solid var(--color-btn-border);
 }
 
-.btn.btn-starred i.fal.fal.fa-star {
-    padding-left: 0rem;
+.btn.btn-starred svg {
+    font-size: 1rem;
+    margin-bottom: -0.11rem;
     font-weight: 500;
-    color: var(--color-text-tertiary);
+    fill: var(--color-text-tertiary);
 }
 
 .btn.btn-starred span {

@@ -1,8 +1,47 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+
+// Import Components
+import ContributionGraph from '../Shared/contributionGraph';
+import ContributionYears from '../Shared/contributionYears';
 
 import './contribution.css';
 
 const Contributions = () => {
+    const contributionData = useStaticQuery(graphql`
+        query contribtuinQuery {
+            allGithubData {
+                nodes {
+                    data {
+                        user {
+                            contributionsCollection {
+                                contributionYears
+                                contributionCalendar {
+                                    totalContributions
+                                    weeks {
+                                        contributionDays {
+                                            contributionCount
+                                            weekday
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `);
+
+    const profileContribution =
+        contributionData.allGithubData.nodes[0].data.user
+            .contributionsCollection;
+
+    console.log('profileContri ====::::', profileContribution);
+    const yearlyContrubution = profileContribution.contributionYears;
+    const totalContributionYear =
+        profileContribution.contributionCalendar.totalContributions;
+
     return (
         <>
             <div className='contribution-container'>
@@ -11,11 +50,12 @@ const Contributions = () => {
                         <div className='contribution-grid-container'>
                             <div className='contribution-grid-item'>
                                 <h3 className='pinned-heading'>
+                                    {totalContributionYear}{' '}
                                     <span>contributions in the last year</span>
                                 </h3>
                                 <div className='contribution-grid-item-container'>
                                     <div className='grid-item-graph'>
-                                        <p>raphitems</p>
+                                        <ContributionGraph />
                                         <div className='grid-item-footer'>
                                             <div className='footer-item-1'>
                                                 <p>
@@ -103,7 +143,21 @@ const Contributions = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='year-list-container'></div>
+                    <div className='year-list-container'>
+                        <div className='year-list-block'>
+                            <div className='year-list-item'>
+                                <ol>
+                                    {yearlyContrubution &&
+                                        yearlyContrubution.map((year) => (
+                                            <ContributionYears
+                                                key={year}
+                                                year={year}
+                                            />
+                                        ))}
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

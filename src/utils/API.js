@@ -1,6 +1,9 @@
 exports.githubQueryData = `
 query($username: String!) { 
     user(login: $username) {
+    ... on User{
+        login
+    }
     name
     avatarUrl
     bio
@@ -21,6 +24,7 @@ query($username: String!) {
         nodes {
         id
         name
+        avatarUrl
         }
     }
     repositories(privacy: PUBLIC, first: 20, orderBy: {direction: DESC, field: CREATED_AT}) {
@@ -33,13 +37,9 @@ query($username: String!) {
                 forkCount
                 description
                 url
-                languages(first: 1) {
-                edges {
-                    node {
-                    color
+                primaryLanguage {
                     name
-                    }
-                }
+                    color
                 }
                 }
             }
@@ -47,21 +47,19 @@ query($username: String!) {
     ... on ProfileOwner {
     pinnedItemsRemaining
     itemShowcase {
-    items(first: 5) {
+    items(first: 10) {
         totalCount
         edges {
         node {
             ... on Repository {
                 name
                 description
+                stargazerCount
+                forkCount
                 url
-                languages(first: 1) {
-                edges {
-                    node {
-                    color
+                primaryLanguage {
                     name
-                    }
-                }
+                    color
                 }
         }
         }
