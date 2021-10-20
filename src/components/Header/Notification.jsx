@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BsPlus } from '@react-icons/all-files/bs/BsPlus';
+import ImagePlaceHolder from '../../assets/images/avatar_placehoder.png';
 
-const Notification = () => {
+const Notification = ({ avatarUrl }) => {
     return (
         <div className='notification-create-profile'>
             <div className='notification'>
@@ -32,13 +34,17 @@ const Notification = () => {
             <div className='profile-details'>
                 <img
                     style={{ borderRadius: 50 }}
-                    src='https://avatars.githubusercontent.com/u/38655623?v=4'
+                    src={avatarUrl ? avatarUrl : ImagePlaceHolder}
                     alt='avatar'
                 />
                 <span className='sort-down'></span>
             </div>
         </div>
     );
+};
+
+Notification.propTypes = {
+    avatarUrl: PropTypes.string.isRequired,
 };
 
 export default Notification;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
 
 // Import all components;
 import Notification from './Notification';
@@ -11,6 +12,22 @@ import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
 const Header = ({ siteTitle }) => {
     const [openNavbar, setOpenNavbar] = useState(false);
     const handleClick = () => setOpenNavbar(!openNavbar);
+
+    const data = useStaticQuery(graphql`
+        query HeaderQuery {
+            allGithubData {
+                nodes {
+                    data {
+                        user {
+                            avatarUrl
+                        }
+                    }
+                }
+            }
+        }
+    `);
+
+    const avatarUrl = data.allGithubData.nodes[0].data.user.avatarUrl;
     return (
         <header title={siteTitle}>
             <div className='wrapper'>
@@ -100,7 +117,7 @@ const Header = ({ siteTitle }) => {
                             </ul>
                         </nav>
                     </div>
-                    <Notification />
+                    <Notification avatarUrl={avatarUrl} />
                 </div>
             </div>
         </header>
