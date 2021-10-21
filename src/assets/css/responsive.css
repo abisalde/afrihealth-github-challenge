@@ -87,6 +87,10 @@
     .pinned-item {
         width: 100%;
     }
+
+    .profile-organizations {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 692px) and (max-width: 911px) {

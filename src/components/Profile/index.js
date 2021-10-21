@@ -43,6 +43,8 @@ const ProfileCard = () => {
 
     const profile = profileCardData.allGithubData.nodes[0].data.user;
 
+    const orgArray = profile.organizations.nodes;
+
     return (
         <div className='profile-card-content'>
             <div className='profile-avatar-username'>
@@ -148,6 +150,22 @@ const ProfileCard = () => {
                         </p>
                     </div>
                 </div>
+            </div>
+            <div className='profile-achievements'>
+                <h3>Achievements</h3>
+            </div>
+            <div className='profile-organizations'>
+                <h3>Organizations</h3>
+                <ol>
+                    {orgArray &&
+                        orgArray.map((org) => (
+                            <li className='org-listing' key={org.id}>
+                                <div className='org-avatar'>
+                                    <img src={org.avatarUrl} alt={org.name} />
+                                </div>
+                            </li>
+                        ))}
+                </ol>
             </div>
         </div>
     );

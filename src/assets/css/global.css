@@ -346,7 +346,6 @@ input[type='text']:focus {
 
 .follow-aboutme-location {
     width: 100%;
-    border-bottom: 0.06rem solid var(--color-border-primary);
     display: flex;
     flex-flow: column;
 }
@@ -549,4 +548,38 @@ span.fork-repo-display,
     border-radius: 2rem;
     border: 0.2px solid transparent;
     line-height: 1.125rem;
+}
+
+.profile-organizations,
+.profile-achievements {
+    border-color: hsla(210, 18%, 87%, 1);
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 0.06rem solid hsla(210, 18%, 87%, 1);
+}
+
+.profile-organizations h3,
+.profile-achievements h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-header-bg);
+    margin-bottom: 0.5rem;
+}
+
+.org-listing {
+    display: inline-block;
+    margin-bottom: 0.12rem;
+    padding-right: 0.19rem;
+}
+
+.org-avatar img {
+    height: 1.85rem;
+    width: 1.85rem;
+    size: 1.85rem;
+    display: inline-block;
+    border-radius: 0.35rem;
+    background-color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 1px rgba(27, 31, 36, 0.15);
+    overflow: hidden;
 }

@@ -15,6 +15,7 @@ public
 /build
 
 # misc
+.env*
 .DS_Store
 .env
 .env.local
