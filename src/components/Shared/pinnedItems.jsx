@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BiStar } from '@react-icons/all-files/bi/BiStar';
 
 const PinnedItems = ({
@@ -10,7 +11,6 @@ const PinnedItems = ({
     forkCount,
     stargazerCount,
 }) => {
-    console.log(languageColor);
     return (
         <>
             <div className='pinned-item-list-content'>
@@ -104,6 +104,16 @@ const PinnedItems = ({
             </div>
         </>
     );
+};
+
+PinnedItems.propTypes = {
+    description: PropTypes.string,
+    languageName: PropTypes.string.isRequired,
+    languageColor: PropTypes.string.isRequired,
+    repoName: PropTypes.string.isRequired,
+    repoUrl: PropTypes.string.isRequired,
+    forkCount: PropTypes.number.isRequired,
+    stargazerCount: PropTypes.number.isRequired,
 };
 
 export default PinnedItems;

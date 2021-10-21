@@ -4,6 +4,10 @@ ul.header-navigation {
     align-items: center;
 }
 
+/* ul.header-navigation.active {
+    display: block;
+} */
+
 .breadcrumbs-sticky-nav .stikcy-navigation {
     position: sticky;
     top: 0 !important;

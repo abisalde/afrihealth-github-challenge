@@ -1,14 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 
 const Navigation = () => {
+    const [highlight, setHighlight] = useState(true);
+
+    const handleHighlight = () => {
+        setHighlight(!highlight);
+    };
+
+    const repCount = useStaticQuery(graphql`
+        query ReposCountQuery {
+            allGithubData {
+                nodes {
+                    data {
+                        user {
+                            repositories {
+                                totalCount
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `);
+
+    const count =
+        repCount.allGithubData.nodes[0].data.user.repositories.totalCount;
+
     return (
         <div className='breadcrumbs-sticky-nav desktop'>
             <div className='border-line'></div>
             <div className='wrapper'>
                 <div className='sticky-navigation'>
                     <div className='sticky-profile-card'></div>
-                    <nav className='breadcrumbs-inline-navigation'>
-                        <a className='breadcrumbs-nav-links' href='#'>
+                    <nav
+                        className='breadcrumbs-inline-navigation'
+                        role='navigation'
+                        aria-label='navigation'
+                    >
+                        <Link
+                            className={
+                                highlight
+                                    ? 'breadcrumbs-nav-links active'
+                                    : 'breadcrumbs-nav-links'
+                            }
+                            to='/'
+                            role='navigation'
+                            aria-label='menu'
+                            onClick={handleHighlight}
+                        >
                             <svg
                                 aria-hidden='true'
                                 viewBox='0 0 16 16'
@@ -16,7 +56,11 @@ const Navigation = () => {
                                 data-view-component='true'
                                 height='16'
                                 width='16'
-                                className='breadcrumbs-menu'
+                                className={
+                                    highlight
+                                        ? 'breadcrumbs-menu active'
+                                        : 'breadcrumbs-menu'
+                                }
                             >
                                 <path
                                     fillRule='evenodd'
@@ -24,8 +68,18 @@ const Navigation = () => {
                                 ></path>
                             </svg>{' '}
                             Overview
-                        </a>
-                        <a className='breadcrumbs-nav-links active' href='#'>
+                        </Link>
+                        <Link
+                            className={
+                                highlight
+                                    ? 'breadcrumbs-nav-links'
+                                    : 'breadcrumbs-nav-links active'
+                            }
+                            to='/repositories'
+                            role='navigation'
+                            aria-label='menu'
+                            onClick={handleHighlight}
+                        >
                             <svg
                                 aria-hidden='true'
                                 viewBox='0 0 16 16'
@@ -33,16 +87,28 @@ const Navigation = () => {
                                 data-view-component='true'
                                 height='16'
                                 width='16'
-                                className='breadcrumbs-menu active'
+                                className={
+                                    highlight
+                                        ? 'breadcrumbs-menu'
+                                        : 'breadcrumbs-menu active'
+                                }
                             >
                                 <path
                                     fillRule='evenodd'
                                     d='M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z'
                                 ></path>
                             </svg>{' '}
-                            Repositories
-                        </a>
-                        <a className='breadcrumbs-nav-links' href='#'>
+                            Repositories{' '}
+                            <span className='repo-counter' title={count}>
+                                {count}
+                            </span>
+                        </Link>
+                        <a
+                            className='breadcrumbs-nav-links'
+                            href='https://github.com/abisalde?tab=projects'
+                            rel='noreferrer'
+                            target='_blank'
+                        >
                             <svg
                                 aria-hidden='true'
                                 viewBox='0 0 16 16'
@@ -59,7 +125,12 @@ const Navigation = () => {
                             </svg>{' '}
                             Projects
                         </a>
-                        <a className='breadcrumbs-nav-links' href='#'>
+                        <a
+                            className='breadcrumbs-nav-links'
+                            href='https://github.com/abisalde?tab=packages'
+                            rel='noreferrer'
+                            target='_blank'
+                        >
                             <svg
                                 aria-hidden='true'
                                 viewBox='0 0 16 16'

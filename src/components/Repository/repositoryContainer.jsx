@@ -9,15 +9,17 @@ const RepositoryContainer = ({ repoData }) => {
         <>
             <div className='repositories-lists'>
                 <ul className='repo-list'>
-                    {repoData.map((repo) => (
+                    {repoData.map((repo, i) => (
                         <SingleRepositoryContainer
-                            key={repo.node.name}
+                            key={i}
                             description={repo.node.description}
                             forkCount={repo.node.forkCount}
                             repoName={repo.node.name}
                             starCount={repo.node.stargazerCount}
                             updatedAt={repo.node.updatedAt}
                             repoUrl={repo.node.url}
+                            codeLangName={repo.node.primaryLanguage?.name}
+                            codeLangColor={repo.node.primaryLanguage?.color}
                         />
                     ))}
                 </ul>

@@ -37,7 +37,7 @@ const Contributions = () => {
         contributionData.allGithubData.nodes[0].data.user
             .contributionsCollection;
 
-    console.log('profileContri ====::::', profileContribution);
+    // console.log('profileContri ====::::', profileContribution);
     const yearlyContrubution = profileContribution.contributionYears;
     const totalContributionYear =
         profileContribution.contributionCalendar.totalContributions;

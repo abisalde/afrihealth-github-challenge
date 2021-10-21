@@ -12,6 +12,8 @@ const SEO = ({ description, lang, meta, title }) => {
                         title
                         description
                         author
+                        twitterUsername
+                        image
                     }
                 }
             }
@@ -47,15 +49,19 @@ const SEO = ({ description, lang, meta, title }) => {
                 },
                 {
                     name: `twitter:card`,
-                    content: `summary`,
+                    content: `A Github Profile with Github GraphQL Query`,
+                },
+                {
+                    property: `og:image`,
+                    content: site.siteMetadata.image,
                 },
                 {
                     name: `twitter:creator`,
-                    content: site.siteMetadata?.author || ``,
+                    content: site.siteMetadata?.twitterUsername || ``,
                 },
                 {
                     name: `twitter:title`,
-                    content: title,
+                    content: metaDescription,
                 },
                 {
                     name: `twitter:description`,
