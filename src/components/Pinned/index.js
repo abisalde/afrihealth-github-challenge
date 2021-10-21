@@ -45,19 +45,19 @@ const Pinned = () => {
                 <ol className='pinned-items-listing'>
                     {allPinnedData &&
                         allPinnedData.map((item) => (
-                            <li key={item.node.name} className='pinned-item'>
+                            <li key={item.node?.name} className='pinned-item'>
                                 <PinnedItems
-                                    description={item.node.description}
+                                    description={item.node?.description}
                                     languageName={
-                                        item.node.primaryLanguage.name
+                                        item.node.primaryLanguage?.name
                                     }
                                     languageColor={
-                                        item.node.primaryLanguage.color
+                                        item.node.primaryLanguage?.color
                                     }
-                                    repoName={item.node.name}
-                                    repoUrl={item.node.url}
-                                    stargazerCount={item.node.stargazerCount}
-                                    forkCount={item.node.forkCount}
+                                    repoName={item.node?.name}
+                                    repoUrl={item.node?.url}
+                                    stargazerCount={item.node?.stargazerCount}
+                                    forkCount={item.node?.forkCount}
                                 />
                             </li>
                         ))}

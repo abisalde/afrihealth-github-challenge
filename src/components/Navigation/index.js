@@ -1,14 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'gatsby';
 
 const Navigation = () => {
+    const [highlight, setHighlight] = useState(true);
+
+    const handleHighlight = () => {
+        setHighlight(!highlight);
+    };
+
     return (
         <div className='breadcrumbs-sticky-nav desktop'>
             <div className='border-line'></div>
             <div className='wrapper'>
                 <div className='sticky-navigation'>
                     <div className='sticky-profile-card'></div>
-                    <nav className='breadcrumbs-inline-navigation'>
-                        <a className='breadcrumbs-nav-links' href='#'>
+                    <nav
+                        className='breadcrumbs-inline-navigation'
+                        role='navigation'
+                        aria-label='navigation'
+                    >
+                        <Link
+                            className={
+                                highlight
+                                    ? 'breadcrumbs-nav-links active'
+                                    : 'breadcrumbs-nav-links'
+                            }
+                            to='/'
+                            role='navigation'
+                            aria-label='menu'
+                            onClick={handleHighlight}
+                        >
                             <svg
                                 aria-hidden='true'
                                 viewBox='0 0 16 16'
@@ -16,7 +37,11 @@ const Navigation = () => {
                                 data-view-component='true'
                                 height='16'
                                 width='16'
-                                className='breadcrumbs-menu'
+                                className={
+                                    highlight
+                                        ? 'breadcrumbs-menu active'
+                                        : 'breadcrumbs-menu'
+                                }
                             >
                                 <path
                                     fillRule='evenodd'
@@ -24,8 +49,18 @@ const Navigation = () => {
                                 ></path>
                             </svg>{' '}
                             Overview
-                        </a>
-                        <a className='breadcrumbs-nav-links active' href='#'>
+                        </Link>
+                        <Link
+                            className={
+                                highlight
+                                    ? 'breadcrumbs-nav-links'
+                                    : 'breadcrumbs-nav-links active'
+                            }
+                            to='/repositories'
+                            role='navigation'
+                            aria-label='menu'
+                            onClick={handleHighlight}
+                        >
                             <svg
                                 aria-hidden='true'
                                 viewBox='0 0 16 16'
@@ -33,7 +68,11 @@ const Navigation = () => {
                                 data-view-component='true'
                                 height='16'
                                 width='16'
-                                className='breadcrumbs-menu active'
+                                className={
+                                    highlight
+                                        ? 'breadcrumbs-menu'
+                                        : 'breadcrumbs-menu active'
+                                }
                             >
                                 <path
                                     fillRule='evenodd'
@@ -41,8 +80,13 @@ const Navigation = () => {
                                 ></path>
                             </svg>{' '}
                             Repositories
-                        </a>
-                        <a className='breadcrumbs-nav-links' href='#'>
+                        </Link>
+                        <a
+                            className='breadcrumbs-nav-links'
+                            href='https://github.com/abisalde?tab=projects'
+                            rel='noreferrer'
+                            target='_blank'
+                        >
                             <svg
                                 aria-hidden='true'
                                 viewBox='0 0 16 16'
@@ -59,7 +103,12 @@ const Navigation = () => {
                             </svg>{' '}
                             Projects
                         </a>
-                        <a className='breadcrumbs-nav-links' href='#'>
+                        <a
+                            className='breadcrumbs-nav-links'
+                            href='https://github.com/abisalde?tab=packages'
+                            rel='noreferrer'
+                            target='_blank'
+                        >
                             <svg
                                 aria-hidden='true'
                                 viewBox='0 0 16 16'

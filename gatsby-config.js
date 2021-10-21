@@ -4,10 +4,12 @@ dotenv.config();
 
 module.exports = {
     siteMetadata: {
-        siteUrl: 'https://www.yourdomain.tld',
+        siteUrl: 'https://www.abisalde-graphql-profile.netlify.app',
         title: 'Github GrapQL Profile Card',
         description: 'A simple GatsbyJS starter with GraphQL',
-        author: `@abisalde`,
+        author: `Isaiah Abiodun`,
+        twitterUsername: '@abisalde',
+        image: './src/assets/images/graphql.png',
     },
     plugins: [
         'gatsby-plugin-styled-components',

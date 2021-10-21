@@ -5,8 +5,7 @@ import * as React from 'react';
 // markup
 import Layout from '../components/Layout';
 import Navigation from '../components/Navigation';
-import DesktopView from '../views/desktopView';
-// import Overview from '../views/Overview';
+import Overview from '../views/Overview';
 import Seo from '../components/Seo';
 
 const IndexPage = () => {
@@ -14,8 +13,7 @@ const IndexPage = () => {
         <Layout>
             <Seo title='Home' />
             <Navigation />
-            <DesktopView />
-            {/* <Overview /> */}
+            <Overview />
         </Layout>
     );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BiStar } from '@react-icons/all-files/bi/BiStar';
 
 const SingleRepositoryContainer = ({
@@ -8,7 +9,28 @@ const SingleRepositoryContainer = ({
     starCount,
     updatedAt,
     repoUrl,
+    codeLangName,
+    codeLangColor,
 }) => {
+    const readableDate = (str) => {
+        const monthNames = [
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sept',
+            'Oct',
+            'Nove',
+            'Dec',
+        ];
+
+        const dateFormat = new Date(str);
+        return `${dateFormat.getDate()} ${monthNames[dateFormat.getMonth()]}`;
+    };
     return (
         <>
             <li className='github-repo-contents'>
@@ -21,8 +43,13 @@ const SingleRepositoryContainer = ({
                     </div>
                     <div className='codelang-fork-date'>
                         <span className='codelang'>
-                            <span className='code-color'></span>{' '}
-                            <span className='programming-language'>HTML</span>
+                            <span
+                                className='code-color'
+                                style={{ backgroundColor: codeLangColor }}
+                            ></span>{' '}
+                            <span className='programming-language'>
+                                {codeLangName}
+                            </span>
                         </span>
                         <span
                             className={
@@ -53,7 +80,10 @@ const SingleRepositoryContainer = ({
                             {forkCount}
                         </span>
                         <span className='date-update'>
-                            Updated on <time dateTime={updatedAt}>Aug 20</time>
+                            Updated on{' '}
+                            <time dateTime={updatedAt}>
+                                {readableDate(updatedAt)}
+                            </time>
                         </span>
                     </div>
                 </div>
@@ -72,4 +102,14 @@ const SingleRepositoryContainer = ({
     );
 };
 
+SingleRepositoryContainer.propTypes = {
+    description: PropTypes.string,
+    forkCount: PropTypes.number.isRequired,
+    repoName: PropTypes.string.isRequired,
+    starCount: PropTypes.number.isRequired,
+    updatedAt: PropTypes.any.isRequired,
+    repoUrl: PropTypes.string.isRequired,
+    codeLangName: PropTypes.string,
+    codeLangColor: PropTypes.string,
+};
 export default SingleRepositoryContainer;

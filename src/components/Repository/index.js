@@ -37,7 +37,7 @@ const RepositoryIndex = () => {
     `);
     const repos =
         RepositoryData.allGithubData.nodes[0].data.user.repositories.edges;
-    console.log('repo::::::::::;', repos);
+
     return (
         <>
             <div className='breadcrumbs-repository-details'>

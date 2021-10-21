@@ -42,7 +42,6 @@ const ProfileCard = () => {
     `);
 
     const profile = profileCardData.allGithubData.nodes[0].data.user;
-    console.log(profile);
 
     return (
         <div className='profile-card-content'>
@@ -55,13 +54,13 @@ const ProfileCard = () => {
                                 ? profile.avatarUrl
                                 : ImagePlaceHolder
                         }
-                        alt={profile.name}
+                        alt={profile?.name}
                     />
                 </div>
                 <div className='name-username'>
                     <h1>
-                        <span className='fullname'>{profile.name}</span>{' '}
-                        <span className='username'>{profile.login}</span>
+                        <span className='fullname'>{profile?.name}</span>{' '}
+                        <span className='username'>{profile?.login}</span>
                     </h1>
                 </div>
             </div>
@@ -74,7 +73,12 @@ const ProfileCard = () => {
                         <p>{profile.bio && profile.bio}</p>
                     </div>
                     <div className='followers-following'>
-                        <a className='link-follows' href='#'>
+                        <a
+                            className='link-follows'
+                            href='https://github.com/abisalde'
+                            rel='noreferrer'
+                            target='_blank'
+                        >
                             <svg
                                 aria-hidden='true'
                                 height='16'
@@ -95,14 +99,24 @@ const ProfileCard = () => {
                             </span>
                             followers ·{' '}
                         </a>
-                        <a className='link-follows' href='#'>
+                        <a
+                            className='link-follows'
+                            href='https://github.com/abisalde'
+                            rel='noreferrer'
+                            target='_blank'
+                        >
                             <span className='following'>
                                 {profile.following.totalCount &&
                                     profile.following.totalCount}
                             </span>
                             following ·{' '}
                         </a>
-                        <a className='link-follows' href='#'>
+                        <a
+                            className='link-follows'
+                            href='https://github.com/abisalde'
+                            rel='noreferrer'
+                            target='_blank'
+                        >
                             <BiStar style={{ fontWeight: 500 }} />
                             <span className='starred'>
                                 {profile.starredRepositories.totalCount}
@@ -124,12 +138,12 @@ const ProfileCard = () => {
                                     d='M11.536 3.464a5 5 0 010 7.072L8 14.07l-3.536-3.535a5 5 0 117.072-7.072v.001zm1.06 8.132a6.5 6.5 0 10-9.192 0l3.535 3.536a1.5 1.5 0 002.122 0l3.535-3.536zM8 9a2 2 0 100-4 2 2 0 000 4z'
                                 ></path>
                             </svg>{' '}
-                            {profile.location}
+                            {profile?.location}
                         </p>
                         <p>
                             <ImTwitter /> @
                             <span className='twitter-username'>
-                                {profile.twitterUsername}
+                                {profile?.twitterUsername}
                             </span>
                         </p>
                     </div>

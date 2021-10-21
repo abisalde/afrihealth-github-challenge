@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
+// Import Components
 import Header from '../Header';
 
 //import Styles
@@ -18,7 +19,7 @@ const Layout = ({ children }) => {
         }
     `);
 
-    console.log(data);
+    // console.log(data);
 
     return (
         <div className='main-application'>
@@ -28,12 +29,27 @@ const Layout = ({ children }) => {
             </div>
             <footer
                 style={{
-                    marginTop: `2rem`,
+                    position: `relative`,
+                    width: `100%`,
+                    bottom: 0,
+                    marginTop: `3rem`,
+                    backgroundColor: `var(--color-header-bg)`,
+                    color: `var(--color-btn-bg)`,
+                    padding: `1.5rem 0`,
+                    fontSize: `1.125rem`,
+                    fontWeight: 600,
                 }}
             >
-                © {new Date().getFullYear()}, Developed by
-                {` `}
-                <a href='https://twitter.com/abisalde'>Abisalde</a>
+                <div className='wrapper'>
+                    © {new Date().getFullYear()}, Developed by
+                    {` `}
+                    <a
+                        style={{ color: `var(--color-btn-bg)` }}
+                        href='https://twitter.com/abisalde'
+                    >
+                        Abisalde
+                    </a>
+                </div>
             </footer>
         </div>
     );
