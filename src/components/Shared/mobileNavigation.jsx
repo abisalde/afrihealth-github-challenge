@@ -1,7 +1,26 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 
 const MobileNavigation = () => {
+    const repCount = useStaticQuery(graphql`
+        query ReposCountMobile {
+            allGithubData {
+                nodes {
+                    data {
+                        user {
+                            repositories {
+                                totalCount
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `);
+
+    const count =
+        repCount.allGithubData.nodes[0].data.user.repositories.totalCount;
+
     return (
         <>
             <div className='breadcrumbs-sticky-nav mobile'>
@@ -48,6 +67,9 @@ const MobileNavigation = () => {
                                     ></path>
                                 </svg>{' '}
                                 Repositories
+                                <span className='repo-counter' title={count}>
+                                    {count}
+                                </span>
                             </Link>
                             <a
                                 className='breadcrumbs-nav-links'

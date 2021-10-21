@@ -536,3 +536,17 @@ span.fork-repo-display,
 .btn.btn-starred span {
     font-weight: 200;
 }
+
+.repo-counter {
+    margin-left: 0.26rem;
+    color: var(--color-header-bg);
+    background-color: rgba(175, 184, 193, 0.2);
+    display: inline-block;
+    min-width: 1.25rem;
+    padding: 0rem 0.4rem;
+    font-size: 0.75rem;
+    text-align: center;
+    border-radius: 2rem;
+    border: 0.2px solid transparent;
+    line-height: 1.125rem;
+}
