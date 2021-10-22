@@ -75,7 +75,7 @@ const SEO = ({ description, lang, meta, title }) => {
 SEO.defaultProps = {
     lang: `en`,
     meta: [],
-    description: `Github Profile with GrapQL`,
+    description: `Github Profile with GraphQL and Gatsbyjs`,
 };
 
 SEO.propTypes = {
