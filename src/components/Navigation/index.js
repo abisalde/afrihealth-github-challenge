@@ -1,13 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 
 const Navigation = () => {
-    const [highlight, setHighlight] = useState(true);
-
-    const handleHighlight = () => {
-        setHighlight(!highlight);
-    };
-
     const repCount = useStaticQuery(graphql`
         query ReposCountQuery {
             allGithubData {
@@ -39,15 +33,11 @@ const Navigation = () => {
                         aria-label='navigation'
                     >
                         <Link
-                            className={
-                                highlight
-                                    ? 'breadcrumbs-nav-links active'
-                                    : 'breadcrumbs-nav-links'
-                            }
+                            className='breadcrumbs-nav-links'
                             to='/'
                             role='navigation'
                             aria-label='menu'
-                            onClick={handleHighlight}
+                            activeClassName='active'
                         >
                             <svg
                                 aria-hidden='true'
@@ -56,11 +46,7 @@ const Navigation = () => {
                                 data-view-component='true'
                                 height='16'
                                 width='16'
-                                className={
-                                    highlight
-                                        ? 'breadcrumbs-menu active'
-                                        : 'breadcrumbs-menu'
-                                }
+                                className='breadcrumbs-menu'
                             >
                                 <path
                                     fillRule='evenodd'
@@ -70,15 +56,11 @@ const Navigation = () => {
                             Overview
                         </Link>
                         <Link
-                            className={
-                                highlight
-                                    ? 'breadcrumbs-nav-links'
-                                    : 'breadcrumbs-nav-links active'
-                            }
+                            className='breadcrumbs-nav-links'
                             to='/repositories'
                             role='navigation'
                             aria-label='menu'
-                            onClick={handleHighlight}
+                            activeClassName='active'
                         >
                             <svg
                                 aria-hidden='true'
@@ -87,11 +69,7 @@ const Navigation = () => {
                                 data-view-component='true'
                                 height='16'
                                 width='16'
-                                className={
-                                    highlight
-                                        ? 'breadcrumbs-menu'
-                                        : 'breadcrumbs-menu active'
-                                }
+                                className='breadcrumbs-menu'
                             >
                                 <path
                                     fillRule='evenodd'
