@@ -29,7 +29,8 @@ const MobileNavigation = () => {
                         <div className='sticky-profile-card'></div>
                         <nav className='breadcrumbs-inline-navigation'>
                             <Link
-                                className='breadcrumbs-nav-links active'
+                                className='breadcrumbs-nav-links'
+                                activeClassName='active'
                                 to='/'
                             >
                                 <svg
@@ -39,7 +40,7 @@ const MobileNavigation = () => {
                                     data-view-component='true'
                                     height='16'
                                     width='16'
-                                    className='breadcrumbs-menu active'
+                                    className='breadcrumbs-menu'
                                 >
                                     <path
                                         fillRule='evenodd'
@@ -51,6 +52,7 @@ const MobileNavigation = () => {
                             <Link
                                 className='breadcrumbs-nav-links'
                                 to='/repositories'
+                                activeClassName='active'
                             >
                                 <svg
                                     aria-hidden='true'
