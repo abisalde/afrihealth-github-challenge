@@ -22,9 +22,9 @@ const SingleRepositoryContainer = ({
             'Jun',
             'Jul',
             'Aug',
-            'Sept',
+            'Sep',
             'Oct',
-            'Nove',
+            'Nov',
             'Dec',
         ];
 
