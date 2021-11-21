@@ -5,9 +5,9 @@ const ContributionSvgGrid = ({ data }) => {
 
     const getDataLevel = (count) => {
         if (!count) return '0';
-        if (count >= 1 && count <= 2) return '1';
-        if (count >= 3 && count <= 7) return '2';
-        if (count >= 8 && count <= 10) return '3';
+        if (count >= 1 && count <= 4) return '1';
+        if (count >= 5 && count <= 9) return '2';
+        if (count >= 10 && count <= 13) return '3';
         return '4';
     };
 
