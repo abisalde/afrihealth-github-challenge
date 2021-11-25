@@ -137,13 +137,20 @@ const TestSite = () => {
                     </g>
                 </svg>
 
-                {data.map((week, i) => {
-                    let days = week.contributionDays;
-                    // console.log('daysTest', days);
+                {testThis.map((week, i) => {
+                    // let days = week.contributionDays;
+                    // console.log('daysTest', week);
+                    let date = week.date;
+
+                    console.log('DATE::::', date);
 
                     return (
                         <Fragment key={i}>
-                            {days.map((day, i) => {
+                            <p>
+                                <span>{i}</span>
+                                <span>{convertDate(date).slice(0, 14)}</span>
+                            </p>
+                            {/* {days.map((day, i) => {
                                 // console.log('day', day);
 
                                 return (
@@ -153,10 +160,10 @@ const TestSite = () => {
                                     >
                                         <li>
                                             <div style={{ margin: '0px 18px' }}>
-                                                {/* <span>{i}</span>
+                                                <span>{i}</span>
                                                 <span>
                                                     {convertDate(day.date)}
-                                                </span> */}
+                                                </span>
                                                 <span>
                                                     {convertDate(day.date)}
                                                 </span>
@@ -164,7 +171,7 @@ const TestSite = () => {
                                         </li>
                                     </ul>
                                 );
-                            })}
+                            })} */}
                             ;
                         </Fragment>
                     );
