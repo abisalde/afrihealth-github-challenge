@@ -29,8 +29,6 @@ const TestSite = () => {
         return acc;
     }, []);
 
-    console.log('TEST THIS:::::', testThis);
-
     return (
         <Fragment>
             <div className='test'>
@@ -141,8 +139,6 @@ const TestSite = () => {
                     // let days = week.contributionDays;
                     // console.log('daysTest', week);
                     let date = week.date;
-
-                    console.log('DATE::::', date);
 
                     return (
                         <Fragment key={i}>
