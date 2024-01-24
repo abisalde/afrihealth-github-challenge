@@ -126,7 +126,7 @@ const Contributions = () => {
               <div className="year-list-item">
                 <ol>
                   {yearlyContribution &&
-                    yearlyContribution.map(year => (
+                    yearlyContribution.map((year) => (
                       <ContributionYears key={year} year={year} />
                     ))}
                 </ol>
