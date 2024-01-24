@@ -1,19 +1,19 @@
-import * as React from 'react';
+import * as React from "react";
 
 // Components and Views
-import Layout from '../components/Layout';
-import Navigation from '../components/Navigation';
-import Overview from '../views/Overview';
-import Seo from '../components/Seo';
+import Layout from "../components/Layout";
+import Navigation from "../components/Navigation";
+import Overview from "../views/Overview";
+import Seo from "../components/Seo";
 
 const IndexPage = () => {
-    return (
-        <Layout>
-            <Seo title='GitHub Profile' />
-            <Navigation />
-            <Overview />
-        </Layout>
-    );
+  return (
+    <Layout>
+      <Seo title="GitHub Profile" />
+      <Navigation />
+      <Overview />
+    </Layout>
+  );
 };
 
 export default IndexPage;
