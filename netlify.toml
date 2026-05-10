@@ -5,18 +5,10 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# Cache configuration to prevent msgpackr EISDIR errors
+# Skip cache restoration to prevent msgpackr EISDIR errors
+# The @netlify/plugin-gatsby tries to copy directories as files
 [build.cache]
-  directories = [".cache", "node_modules"]
-  
-# Exclude problematic directories from the cache
-[build.cache.exclusions]
-  ".cache/adapters/node_modules/.bin" = true
-
-# Alternative: Clear cache between builds if issues persist
-# Uncomment if the exclusion doesn't work
-# [build.cache]
-#   skip_restore = true
+  skip_restore = true
 
 [[plugins]]
   package = "@netlify/plugin-gatsby"
