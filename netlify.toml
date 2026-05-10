@@ -20,7 +20,3 @@
 
 [[plugins]]
   package = "@netlify/plugin-gatsby"
-
-  [plugins.inputs]
-    # Cache invalidation after each build to prevent stale state
-    cacheDir = ".cache"
