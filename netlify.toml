@@ -1,0 +1,14 @@
+[build]
+  command = "gatsby build"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Skip cache restoration to prevent msgpackr EISDIR errors
+# The @netlify/plugin-gatsby tries to copy directories as files
+[build.cache]
+  skip_restore = true
+
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
